@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h3>Resume Analyzer</h3>
+    <div>
+        <a href="/">Home</a>
+        <a href="/compare">Compare</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <h2>Upload Resume</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    <!-- RESULT SECTION -->
+   {% if result %}
+<div class="card">
+
+    <a href="/download" class="btn-download">Download PDF</a>
+
+    <!-- SCORE -->
+    <h2>Score: {{ result.score }}%</h2>
+
+    <div class="progress">
+        <div class="progress-bar" style="width: {{ result.score }}%;"></div>
+    </div>
+
+    {% if result.score < 50 %}
+        <p style="color:red;">Needs Improvement </p>
+    {% elif result.score < 80 %}
+        <p style="color:orange;">Good, but can improve </p>
+    {% else %}
+        <p style="color:green;">Excellent Resume </p>
+    {% endif %}
+
+    <!-- BREAKDOWN -->
+    <h3>Score Breakdown</h3>
+
+    {% for key, value in result.breakdown.items() %}
+        <p><b>{{ key }}</b> - {{ value }}%</p>
+
+        <div class="progress small">
+            <div class="progress-bar green" style="width: {{ value }}%;"></div>
+        </div>
+    {% endfor %}
+
+    <!-- SKILLS -->
+    <h3>Skills Detected</h3>
+
+    {% if result.programming %}
+        <p><b>Programming:</b> {{ result.programming | join(", ") }}</p>
+    {% endif %}
+
+    {% if result.web %}
+        <p><b>Web:</b> {{ result.web | join(", ") }}</p>
+    {% endif %}
+
+    {% if result.database %}
+        <p><b>Database:</b> {{ result.database | join(", ") }}</p>
+    {% endif %}
+
+    {% if result.tools %}
+        <p><b>Tools:</b> {{ result.tools | join(", ") }}</p>
+    {% endif %}
+
+    {% if result.cs_core %}
+        <p><b>CS Core:</b> {{ result.cs_core | join(", ") }}</p>
+    {% endif %}
+
+    {% if not result.programming and not result.web and not result.database and not result.tools and not result.cs_core %}
+        <p>No skills detected</p>
+    {% endif %}
+
+    <!-- SUGGESTIONS -->
+    <h3>Suggestions</h3>
+
+    {% if result.suggestions %}
+        <ul>
+            {% for s in result.suggestions %}
+                <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color:green;">Perfect Resume </p>
+    {% endif %}
+
+</div>
+{% else %}
+<p style="margin-top:20px;">Upload a resume to see analysis</p>
+{% endif %}
+
+</div>
+
+</body>
+</html>

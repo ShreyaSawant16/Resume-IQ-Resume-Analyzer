@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h3>Resume Analyzer</h3>
+    <div>
+        <a href="/">Home</a>
+        <a href="/compare">Compare</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h2>Compare Resumes</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume1" required>
+        <input type="file" name="resume2" required>
+        <button>Compare</button>
+    </form>
+
+    {% if result %}
+    <div class="card">
+
+        <h3>{{ result.better }} is Better </h3>
+
+        <div class="compare-grid">
+
+            <!-- Resume 1 -->
+            <div>
+                <h4>Resume 1</h4>
+                <p><b>Score:</b> {{ result.r1.score }}%</p>
+
+                <p><b>Skills:</b></p>
+                <ul>
+                    {% for s in result.skills1 %}
+                    <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><b>Missing Skills:</b></p>
+                <ul>
+                    {% for s in result.missing1 %}
+                    <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Resume 2 -->
+            <div>
+                <h4>Resume 2</h4>
+                <p><b>Score:</b> {{ result.r2.score }}%</p>
+
+                <p><b>Skills:</b></p>
+                <ul>
+                    {% for s in result.skills2 %}
+                    <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><b>Missing Skills:</b></p>
+                <ul>
+                    {% for s in result.missing2 %}
+                    <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
