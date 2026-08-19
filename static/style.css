@@ -1,0 +1,243 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #2c3e50;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.navbar h3 {
+    font-weight: 500;
+}
+
+.navbar a {
+    color: #ecf0f1;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #bdc3c7;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 10px 15px;
+    background:  #2bae62;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.btn-download:hover {
+    background: #2bae62;
+}
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+.compare-box {
+    padding: 10px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 60%;
+    margin: 40px auto;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* FORM */
+form {
+    margin-top: 15px;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #3498db;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* PROGRESS BAR */
+.progress {
+    background: #e0e0e0;
+    height: 20px;
+    border-radius: 6px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #3498db;
+    transition: width 0.5s ease;
+}
+
+/* SMALL PROGRESS */
+.progress.small {
+    height: 10px;
+}
+
+.progress.small .progress-bar {
+    background: #2bae62;
+}
+
+.progress {
+    background: #eee;
+    height: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress.small {
+    height: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #3498db;
+}
+
+.progress-bar.green {
+    background:  #2bae62;
+}
+
+/* AUTH (LOGIN/SIGNUP) */
+.auth {
+    width: 320px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.auth h2 {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.auth input {
+    margin-top: 10px;
+}
+
+.auth a {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #3498db;
+}
+
+/* ERROR */
+.error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* HISTORY CARDS */
+.card {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* COMPARE PAGE */
+.container h2 {
+    margin-bottom: 10px;
+}
+
+.container h3 {
+    margin-top: 20px;
+}
+
+/* LIST */
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* EMPTY TEXT */
+.empty-text {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background:  #2bae62;;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background:  #2bae62;;
+}
